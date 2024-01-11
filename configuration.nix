@@ -14,6 +14,7 @@
   # boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "/dev/disk/by-uuid/7340-6AA1";
   boot.loader.efi.canTouchEfiVariables = false;
 
   networking.hostName = "acul-Battlestation"; # Define your hostname.
