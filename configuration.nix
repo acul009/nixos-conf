@@ -10,12 +10,21 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.device = "/dev/disk/by-uuid/7340-6AA1";
-  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader.grub.device = "nodev";
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.grub.extraEntries  = ''
+  menuentry "Manjaro" {
+    search --set=manjaro --fs-uuid 7680-6148
+    configfile "($manjaro)/boot/grub/grub.cfg"
+  }
+'';
 
   networking.hostName = "acul-Battlestation"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -65,6 +74,8 @@
     packages = with pkgs; [
       firefox
       tree
+      yakuake
+      discord
     ];
   };
 
@@ -75,6 +86,10 @@
     wget
     nano
     zsh
+    gparted
+    git
+    kate
+    efibootmgr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -121,4 +136,5 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
+
 
