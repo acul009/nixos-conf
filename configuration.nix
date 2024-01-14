@@ -76,6 +76,7 @@
       tree
       yakuake
       discord
+      steam
     ];
   };
 
