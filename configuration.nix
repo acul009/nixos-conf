@@ -64,6 +64,10 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  # flatpak service
+  services.flatpak.enable = true;
+
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -77,6 +81,7 @@
       yakuake
       discord
       steam
+      vscodium
     ];
   };
 
@@ -91,6 +96,8 @@
     git
     kate
     efibootmgr
+    flatpak
+    gnome.gnome-software
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
