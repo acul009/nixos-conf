@@ -7,5 +7,5 @@
   environment.systemPackagesFlatpak = with pkgs; [
     flatpak
     gnome.gnome-software
-  ]
+  ];
 }
