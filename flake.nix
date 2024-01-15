@@ -23,6 +23,8 @@
             ./configuration.nix
             ./modules/user-acul.nix
             ./modules/localization.nix
+            ./modules/flatpak.nix
+            ./modules/nvidia.nix
             # inputs.home-manager.nixosModules.default
           ];
         };

@@ -55,8 +55,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # flatpak service
-  services.flatpak.enable = true;
 
   # teamviewer service
   services.teamviewer.enable = true;
@@ -76,8 +74,6 @@
     git
     kate
     efibootmgr
-    flatpak
-    gnome.gnome-software
     teamviewer
   ];
 
