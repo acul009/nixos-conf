@@ -23,6 +23,12 @@
             ./configuration.nix
             # inputs.home-manager.nixosModules.default
           ];
+          config = {
+            # Additional packages without modifying configuration.nix
+            environment.systemPackages = [
+              pkgs.cowsay
+            ];
+          };
         };
 
     };
