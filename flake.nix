@@ -21,6 +21,7 @@
           specialArgs = {inherit inputs;};
           modules = [ 
             ./configuration.nix
+            ./modules/user-acul.nix
             # inputs.home-manager.nixosModules.default
           ];
         };
