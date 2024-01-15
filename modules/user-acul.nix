@@ -10,6 +10,7 @@
       yakuake
       discord
       vscodium
+      spotify
     ];
   };
 }
