@@ -40,13 +40,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-  #   keyMap = "us";
-    useXkbConfig = true; # use xkb.options in tty.
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -54,10 +47,6 @@
   services.xserver.desktopManager.plasma5.enable = true;
 
   
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "de";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -75,19 +64,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.acul = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     firefox
-  #     tree
-  #     yakuake
-  #     discord
-  #     vscodium
-  #   ];
-  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

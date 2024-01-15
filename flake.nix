@@ -22,6 +22,7 @@
           modules = [ 
             ./configuration.nix
             ./modules/user-acul.nix
+            ./modules/localization.nix
             # inputs.home-manager.nixosModules.default
           ];
         };
