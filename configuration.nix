@@ -85,7 +85,6 @@
       tree
       yakuake
       discord
-      steam
       vscodium
     ];
   };
