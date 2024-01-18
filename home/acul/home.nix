@@ -55,10 +55,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
-    ".test.txt".text = ''
-      This is a text file
-    '';
   };
 
   # Home Manager can also manage your environment variables through
