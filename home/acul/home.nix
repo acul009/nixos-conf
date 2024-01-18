@@ -9,6 +9,7 @@
   imports = [
     ./git.nix
     ./flatpaks.nix
+    ./vscode.nix
     # ./theme.nix
   ];
 
