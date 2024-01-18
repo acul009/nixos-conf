@@ -6,6 +6,7 @@
   ];
 
   services.flatpak.packages = [
+    "org.mozilla.firefox"
     "com.discordapp.Discord"
     "com.github.tchx84.Flatseal"
     "com.valvesoftware.Steam"
