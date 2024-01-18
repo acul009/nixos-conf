@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -21,12 +22,12 @@
   boot.loader.grub.device = "nodev";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.loader.grub.extraEntries  = ''
-  menuentry "Manjaro" {
-    search --set=manjaro --fs-uuid 7680-6148
-    configfile "($manjaro)/boot/grub/grub.cfg"
-  }
-'';
+  boot.loader.grub.extraEntries = ''
+    menuentry "Manjaro" {
+      search --set=manjaro --fs-uuid 7680-6148
+      configfile "($manjaro)/boot/grub/grub.cfg"
+    }
+  '';
 
   networking.hostName = "acul-Battlestation"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -46,7 +47,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  
+
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

@@ -1,3 +1,4 @@
 {
+    "editor.formatOnSave": true,
     "nix.formatterPath": "nixpkgs-fmt"
 }

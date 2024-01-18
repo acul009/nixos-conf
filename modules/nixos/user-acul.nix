@@ -1,8 +1,8 @@
-{inputs, config, pkgs, ...}:
+{ inputs, config, pkgs, ... }:
 
 {
 
-  imports =  [
+  imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -20,10 +20,10 @@
     ];
   };
 
-      home-manager = {
-        extraSpecialArgs = { inherit inputs; };
-        users = {
-          "acul" = import ../../home/acul/home.nix;
-        };
-      };
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "acul" = import ../../home/acul/home.nix;
+    };
+  };
 }

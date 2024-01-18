@@ -16,21 +16,21 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-    
-      nixosConfigurations.acul-Battlestation= nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [ 
-            ./configuration.nix
-            ./modules/nixos/user-acul.nix
-            ./modules/nixos/localization.nix
-            ./modules/nixos/flatpak.nix
-            ./modules/nixos/nvidia.nix
-            ./modules/nixos/pipewire.nix
-            inputs.home-manager.nixosModules.default
-          ];
+
+      nixosConfigurations.acul-Battlestation = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configuration.nix
+          ./modules/nixos/user-acul.nix
+          ./modules/nixos/localization.nix
+          ./modules/nixos/flatpak.nix
+          ./modules/nixos/nvidia.nix
+          ./modules/nixos/pipewire.nix
+          inputs.home-manager.nixosModules.default
+        ];
       };
 
-        
+
 
     };
 }
