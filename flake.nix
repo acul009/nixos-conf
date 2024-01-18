@@ -31,12 +31,6 @@
       };
 
         
-      home-manager = {
-        extraSpecialArgs = { inherit inputs; };
-        users = {
-          "acul" = import ../../home/acul/home.nix;
-        };
-      };
 
     };
 }
