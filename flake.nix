@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -26,7 +26,6 @@
           ./modules/nixos/flatpak.nix
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
-          inputs.home-manager.nixosModules.default
         ];
       };
 
