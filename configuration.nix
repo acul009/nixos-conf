@@ -42,11 +42,6 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
 
 
   # Enable CUPS to print documents.
@@ -66,8 +61,8 @@
     zsh
     gparted
     git
-    kate
     efibootmgr
+    htop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
