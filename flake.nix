@@ -4,10 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -21,11 +21,11 @@
           specialArgs = {inherit inputs;};
           modules = [ 
             ./configuration.nix
-            ./modules/user-acul.nix
-            ./modules/localization.nix
-            ./modules/flatpak.nix
-            ./modules/nvidia.nix
-            # inputs.home-manager.nixosModules.default
+            ./modules/nixos/user-acul.nix
+            ./modules/nixos/localization.nix
+            ./modules/nixos/flatpak.nix
+            ./modules/nixos/nvidia.nix
+            inputs.home-manager.nixosModules.default
           ];
         };
 
