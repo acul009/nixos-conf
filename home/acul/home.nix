@@ -7,9 +7,9 @@
   home.homeDirectory = "/home/acul";
 
   imports = [
-      ./git.nix
-      ./theme.nix
-    ];
+    ./git.nix
+    ./theme.nix
+  ];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -55,6 +55,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".test.txt".text = ''
+      This is a text file
+    '';
   };
 
   # Home Manager can also manage your environment variables through
