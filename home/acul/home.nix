@@ -8,6 +8,7 @@
 
   imports = [
     ./git.nix
+    ./flatpaks.nix
     # ./theme.nix
   ];
 
