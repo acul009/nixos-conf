@@ -32,6 +32,7 @@
           ./modules/nixos/flatpak.nix
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
+          ./modules/nixos/zsh.nix
         ];
       };
 
