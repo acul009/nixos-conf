@@ -28,6 +28,7 @@
           ./configuration.nix
           ./modules/nixos/user-acul.nix
           ./modules/nixos/localization.nix
+          ./modules/nixos/plasma.nix
           ./modules/nixos/flatpak.nix
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
