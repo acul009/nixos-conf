@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.nix-flatpak.homeManagerModules
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
 
   services.flatpak.packages = [
