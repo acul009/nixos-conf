@@ -13,7 +13,6 @@
       firefox
       tree
       yakuake
-      discord
       vscodium
       spotify
       nixpkgs-fmt
