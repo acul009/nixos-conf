@@ -7,7 +7,7 @@
     userName = "acul009";
     userEmail = "acul009@gmail.com";
     extraConfig = {
-      credential.helper = "cache --timeout=36000"
-    }
-  }
+      credential.helper = "cache --timeout=36000";
+    };
+  };
 }
