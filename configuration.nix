@@ -56,9 +56,6 @@
   hardware.pulseaudio.enable = true;
 
 
-  # teamviewer service
-  services.teamviewer.enable = true;
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -74,7 +71,6 @@
     git
     kate
     efibootmgr
-    teamviewer
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
