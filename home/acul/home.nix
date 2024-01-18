@@ -8,7 +8,7 @@
 
   imports = [
     ./git.nix
-    ./theme.nix
+    # ./theme.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
