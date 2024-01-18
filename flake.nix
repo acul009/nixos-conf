@@ -25,6 +25,7 @@
             ./modules/nixos/localization.nix
             ./modules/nixos/flatpak.nix
             ./modules/nixos/nvidia.nix
+            ./modules/nixos/pipewire.nix
             inputs.home-manager.nixosModules.default
           ];
         };
