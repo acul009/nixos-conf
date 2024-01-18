@@ -13,7 +13,6 @@
     packages = with pkgs; [
       firefox
       tree
-      yakuake
       vscodium
       spotify
       nixpkgs-fmt

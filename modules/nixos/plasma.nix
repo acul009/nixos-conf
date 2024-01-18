@@ -9,5 +9,7 @@
   environment.systemPackages = with pkgs; [
     kate
     plasma-systemmonitor
+    plasma-browser-integration
+    yakuake
   ];
 }

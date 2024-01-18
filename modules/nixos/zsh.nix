@@ -13,4 +13,6 @@
       plugins = [ "git" "sudo" "docker" ];
     };
   };
+
+  users.defaultUserShell = pkgs.zsh;
 }
