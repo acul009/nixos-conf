@@ -28,7 +28,15 @@
             ./modules/nixos/pipewire.nix
             inputs.home-manager.nixosModules.default
           ];
+      };
+
+        
+      home-manager = {
+        extraSpecialArgs = { inherit inputs; };
+        users = {
+          "acul" = import ../../home/acul/home.nix;
         };
+      };
 
     };
 }
