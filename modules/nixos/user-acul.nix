@@ -12,7 +12,6 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       tree
-      vscodium
       spotify
       nixpkgs-fmt
     ];
