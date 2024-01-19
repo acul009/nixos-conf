@@ -21,7 +21,7 @@
       {
         name = "vim";
         publisher = "vscodevim";
-        version = "1.30.0";
+        version = "1.27.2";
       }
     ];
 
