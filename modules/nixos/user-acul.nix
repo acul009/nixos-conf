@@ -13,7 +13,7 @@
     packages = with pkgs; [
       tree
       spotify
-      vscodium
+      # vscodium
       nixpkgs-fmt
       rustup
     ];
