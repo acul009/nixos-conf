@@ -28,6 +28,9 @@
 
     userSettings = {
       "editor.formatOnSave" = true;
+      "git.confirmSync" = false;
+      "git.autofetch" = true;
+      "terminal.integrated.defaultProfile.linux" = "zsh";
     };
   };
 }
