@@ -18,7 +18,7 @@
       # jnoortheen.nix-ide
 
       # # Rust
-      # rust-lang.rust-analyzer
+      rust-lang.rust-analyzer
       # bungcip.better-toml
       # serayuzgur.crates
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -52,12 +52,12 @@
       }
 
       # Rust
-      {
-        name = "rust-analyzer";
-        publisher = "rust-lang";
-        version = "0.3.1807";
-        sha256 = "4ZMBuDzUlaVXGerG2R2fwEzaHhIelUX4Bur8EaDbb4o=";
-      }
+      # {
+      #   name = "rust-analyzer";
+      #   publisher = "rust-lang";
+      #   version = "0.3.1807";
+      #   sha256 = "4ZMBuDzUlaVXGerG2R2fwEzaHhIelUX4Bur8EaDbb4o=";
+      # }
       {
         name = "better-toml";
         publisher = "bungcip";
