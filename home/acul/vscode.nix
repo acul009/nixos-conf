@@ -4,6 +4,10 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+
+    # disallow manually editing extensions
+    mutableExtensionsDir = false;
+
     extensions = with pkgs.vscode-extensions; [
       # # Basic
       # mhutchie.git-graph
