@@ -1,22 +1,32 @@
 { config, pkgs, ... }:
 
 {
+
+
+  imports = [
+    inputs.nix-vscode-extensions
+  ];
+
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     extensions = [
       # Base
-      "vscodevim.vim"
-      "mhutchie.git-graph"
-      "Codeium.codeium"
+      open-vsx.vscodevim.vim
+      # pkgs.vscode-extensions.mhutchie.git-graph
 
-      # Nix & Nixos
-      "jnoortheen.nix-ide"
+      # "vscodevim.vim"
+      # "mhutchie.git-graph"
+      # "Codeium.codeium"
 
-      # Rust
-      "rust-lang.rust-analyzer"
-      "bungcip.better-toml"
-      "serayuzgur.crates"
+      # # Nix & Nixos
+      # "jnoortheen.nix-ide"
+
+      # # Rust
+      # "rust-lang.rust-analyzer"
+      # "bungcip.better-toml"
+      # "serayuzgur.crates"
     ];
     userSettings = {
       "editor.formatOnSave" = true;
