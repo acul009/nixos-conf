@@ -17,6 +17,11 @@
       # rust-lang.rust-analyzer
       # bungcip.better-toml
       # serayuzgur.crates
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "vim";
+        publisher = "vscodevim";
+      }
     ];
 
     userSettings = {

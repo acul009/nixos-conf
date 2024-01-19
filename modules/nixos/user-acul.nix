@@ -13,13 +13,7 @@
     packages = with pkgs; [
       tree
       spotify
-      vscodium
-      (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
-          "vscodevim.vim"
-          "ms-dotnettools.csharp"
-        ];
-      })
+      # vscodium
       nixpkgs-fmt
       rustup
     ];
