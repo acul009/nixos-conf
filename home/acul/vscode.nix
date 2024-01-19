@@ -22,6 +22,7 @@
         name = "vim";
         publisher = "vscodevim";
         version = "1.27.2";
+        sha256 = "O5G4yhvD2HvKb4Vbvr1v20nMEQq88f5RE+X50bZvr1Q=";
       }
     ];
 
