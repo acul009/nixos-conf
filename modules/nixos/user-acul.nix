@@ -19,7 +19,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs pkgs; };
     users = {
       "acul" = import ../../home/acul/home.nix;
     };
