@@ -15,6 +15,7 @@
       spotify
       vscodium
       nixpkgs-fmt
+      rustup
     ];
   };
 
