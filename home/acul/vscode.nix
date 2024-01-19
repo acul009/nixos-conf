@@ -3,7 +3,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodeium;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       mhutchie.git-graph
 
