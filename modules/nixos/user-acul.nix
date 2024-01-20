@@ -13,9 +13,9 @@
     packages = with pkgs; [
       tree
       spotify
-      # vscodium
       nixpkgs-fmt
       rustup
+      gcc
     ];
   };
 
