@@ -11,5 +11,6 @@
     "com.github.tchx84.Flatseal"
     "com.valvesoftware.Steam"
     "org.signal.Signal"
+    "flatpak run org.prismlauncher.PrismLauncher"
   ];
 }
