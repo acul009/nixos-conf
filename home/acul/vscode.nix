@@ -75,6 +75,7 @@
     ];
 
     userSettings = {
+      "window.titleBarStyle" = "custom";
       "editor.formatOnSave" = true;
       "git.confirmSync" = false;
       "git.autofetch" = true;
