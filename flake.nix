@@ -31,6 +31,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          ./modules/nixos/cli-tools.nix
           ./modules/nixos/user-acul.nix
           ./modules/nixos/localization.nix
           ./modules/nixos/plasma.nix
@@ -38,6 +39,7 @@
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
           ./modules/nixos/zsh.nix
+          ./modules/nixos/teamviewer.nix
         ];
       };
 
