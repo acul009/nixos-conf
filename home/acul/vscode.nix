@@ -3,7 +3,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscodium.fhs;
 
     # disallow manually editing extensions
     mutableExtensionsDir = false;
