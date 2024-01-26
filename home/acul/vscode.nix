@@ -72,6 +72,15 @@
       }
 
 
+      # Golang
+      {
+        name = "Go";
+        publisher = "golang";
+        version = "0.40.3";
+        sha256 = "FWC9ALnp5ZsUqHFOPS5CcKsqf5O6rpr4oMfenvZlcZY=";
+      }
+
+
     ];
 
     userSettings = {
