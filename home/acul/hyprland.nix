@@ -12,24 +12,49 @@ in
     enable = true;
 
     settings = {
-      exec-once = ''${startupScript}/bin/start'';
+      exec-once = [
+        #''${startupScript}/bin/start''
+        "${pkgs.waybar}/bin/waybar"
+        "${pkgs.swww}/bin/swww init"
+      ];
 
-      # set mod key to windows key
-      "$mod" = "SUPER";
+      input = {
+        kb_layout = "de";
+        numlock_by_default = true;
 
-      bindm = [
+        sensitivity = -0.2;
+        # mouse acceleration
+        accel_profile = "flat";
+      };
+
+      # keybinds
+      bind = [
         # open app launcher
-        "$mod, space, exec, rofi -show drun -show-icons"
+        "SUPER,S,exec,rofi -show drun -show-icons"
 
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-        "$mod ALT, mouse:272, resizewindow"
+      ];
+
+      # mouse binds
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+        "SUPER ALT, mouse:272, resizewindow"
+      ];
+
+      # switches and media keys
+      bindl = [
+        ", XF86AudioRaiseVolume, exec, pamixer -i 10"
+        ", XF86AudioLowerVolume, exec, pamixer -d 10"
+        ", XF86AudioMute, exec, pamixer -t"
       ];
 
       monitor = [
-        "DP-2, 2560x1440, 1920x0, 1"
-        "DP-2, 1920x1080, 0x0, 1"
-        ",preferred,auto,1"
+        # default values
+        ",highres,auto,1"
+
+        "DP-2, 1920x1080, 1920x0, 1"
+
+        "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@144, 0x0, 1"
       ];
     };
   };

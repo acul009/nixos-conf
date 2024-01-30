@@ -15,7 +15,10 @@
 
   environment.systemPackages = with pkgs; [
     # menubar
-    waybar
+    # waybar
+
+    # audio control via cli
+    pamixer
 
     # wallpaper daemon
     swww
