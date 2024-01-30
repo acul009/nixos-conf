@@ -20,8 +20,14 @@
     # audio control via cli
     pamixer
 
+    # media play/pause via cli
+    playerctl
+
     # wallpaper daemon
     swww
+
+    # notification daemon
+    dunst
 
     # terminal
     kitty

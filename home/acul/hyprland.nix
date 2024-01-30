@@ -30,7 +30,17 @@ in
       # keybinds
       bind = [
         # open app launcher
-        "SUPER,S,exec,rofi -show drun -show-icons"
+        "CTRL SHIFT, SPACE, exec,rofi -show drun -show-icons"
+
+        # close window
+        "SUPER, X, killactive"
+
+        # allow special layer
+        "SUPER, C, movetoworkspace, special"
+        "ALT, TAB, togglespecialworkspace"
+
+        # debug
+        "SUPER, F5, forcerendererreload"
 
       ];
 
@@ -46,16 +56,21 @@ in
         ", XF86AudioRaiseVolume, exec, pamixer -i 10"
         ", XF86AudioLowerVolume, exec, pamixer -d 10"
         ", XF86AudioMute, exec, pamixer -t"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPrev, exec, playerctl previous"
       ];
 
       monitor = [
+        "desc:Iiyama North America PLX2472HC 1153270400628, 1920x1080@59, 0x460, 1"
+
+        "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@144, 1920x0, 1"
+
         # default values
-        ",highres,auto,1"
-
-        "DP-2, 1920x1080, 1920x0, 1"
-
-        "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@144, 0x0, 1"
+        # ",preferred,auto,1"
       ];
     };
   };
 }
+
+
