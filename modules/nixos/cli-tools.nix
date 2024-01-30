@@ -4,7 +4,6 @@
 
   environment.systemPackages = with pkgs; [
     nmap
-    cope
   ];
 
   # teamviewer service

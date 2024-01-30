@@ -51,6 +51,14 @@
         sha256 = "jwOM+6LnHyCkvhOTVSTUZvgx77jAg6hFCCpBqY8AxIg=";
       }
 
+      # Development
+      {
+        name = "nix-env-selector";
+        publisher = "arrterian";
+        version = "1.0.10";
+        sha256 = "b3Sr0bwU2VJgl2qcdsUROZ3jnK+YUuzJMySvSD7goj8=";
+      }
+
       # Rust
       # {
       #   name = "rust-analyzer";

@@ -18,6 +18,13 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -35,6 +42,7 @@
           ./modules/nixos/user-acul.nix
           ./modules/nixos/localization.nix
           ./modules/nixos/plasma.nix
+          ./modules/nixos/hyprland.nix
           ./modules/nixos/flatpak.nix
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
