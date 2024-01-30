@@ -1,9 +1,10 @@
-{ lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   environment.sessionVariables = {
@@ -15,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     # menubar
-    # waybar
+    waybar
 
     # audio control via cli
     pamixer

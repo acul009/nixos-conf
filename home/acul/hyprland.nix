@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
@@ -12,10 +12,20 @@ in
     enable = true;
 
     settings = {
+      general = with config.colorScheme.palette; {
+        "col.active_border" = "rgba(${base0E}ff) rgba(${base09}ff) 60deg";
+        "col.inactive_border" = "rgba(${base00}ff)";
+      };
+
+      decoration = {
+        inactive_opacity = 0.5;
+      };
+
+      # Autostart
       exec-once = [
-        #''${startupScript}/bin/start''
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww init"
+        "${pkgs.dunst}/bin/dunst"
       ];
 
       input = {
@@ -31,9 +41,13 @@ in
       bind = [
         # open app launcher
         "CTRL SHIFT, SPACE, exec,rofi -show drun -show-icons"
+        "SUPER, SPACE, exec,rofi -show drun -show-icons"
+        "SUPER, S, exec,rofi -show drun -show-icons"
 
         # close window
         "SUPER, X, killactive"
+
+        "Super, mouse_up, movetoworkspace, e+0"
 
         # allow special layer
         "SUPER, C, movetoworkspace, special"
@@ -62,9 +76,9 @@ in
       ];
 
       monitor = [
-        "desc:Iiyama North America PLX2472HC 1153270400628, 1920x1080@59, 0x460, 1"
+        "desc:Iiyama North America PLX2472HC 1153270400628, 1920x1080@60, 0x460, 1"
 
-        "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@144, 1920x0, 1"
+        "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@120, 1920x0, 1"
 
         # default values
         # ",preferred,auto,1"

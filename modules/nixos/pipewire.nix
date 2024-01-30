@@ -1,5 +1,4 @@
-
-{lib, config, pkgs, ...}:
+{ lib, config, pkgs, ... }:
 
 {
   sound.enable = true;
@@ -10,5 +9,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 }
