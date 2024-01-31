@@ -11,7 +11,7 @@
       };
 
       decoration = {
-        inactive_opacity = 0.5;
+        inactive_opacity = 0.9;
       };
 
       # Autostart
@@ -30,28 +30,39 @@
       };
 
       # keybinds
-      bind = [
-        # open app launcher
-        "CTRL SHIFT, SPACE, exec,rofi -show drun -show-icons"
-        "SUPER, SPACE, exec,rofi -show drun -show-icons"
-        "SUPER, S, exec,rofi -show drun -show-icons"
+      bind = lib.lists.flatten [
+        [
+          # open app launcher
+          "CTRL SHIFT, SPACE, exec,rofi -show drun -show-icons"
+          "SUPER, SPACE, exec,rofi -show drun -show-icons"
+          "SUPER, S, exec,rofi -show drun -show-icons"
 
-        "SUPER, RETURN, exec, alacritty"
+          "SUPER, RETURN, exec, alacritty"
 
-        "SUPER, ESCAPE, exec, [fullscreen:1] wlogout"
+          "SUPER, ESCAPE, exec, [fullscreen:1] wlogout"
 
-        # close window
-        "SUPER, X, killactive"
+          # close window
+          "SUPER, X, killactive"
 
-        "Super, mouse_up, movetoworkspace, e+0"
 
-        # allow special layer
-        "SUPER, C, movetoworkspace, special"
-        "ALT, TAB, togglespecialworkspace"
 
-        # debug
-        "SUPER, F5, forcerendererreload"
+          "Super, mouse_up, workspace, e+0"
 
+          # allow special layer
+          "SUPER, C, movetoworkspace, special"
+          "ALT, TAB, togglespecialworkspace"
+
+          # debug
+          "SUPER, F5, forcerendererreload"
+        ]
+        (
+          lib.lists.map
+            (x: (x: [
+              "CTRL, ${x}, workspace, ${x}"
+              "SUPER, ${x}, movetoworkspace, ${x}"
+            ]) (builtins.toString x))
+            (lib.range 1 8)
+        )
       ];
 
       # mouse binds
