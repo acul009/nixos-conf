@@ -25,13 +25,10 @@
     playerctl
 
     # wallpaper daemon
-    swww
+    # swww
 
     # notification daemon
-    dunst
-
-    # terminal
-    kitty
+    mako
 
     # app launcher
     rofi-wayland

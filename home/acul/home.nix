@@ -11,7 +11,8 @@
     ./git.nix
     ./flatpaks.nix
     ./vscode.nix
-    # ./theme.nix
+    ./mako.nix
+    ./alacritty.nix
     ./hyprland.nix
   ];
 
