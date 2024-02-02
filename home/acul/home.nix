@@ -13,7 +13,7 @@
     ./vscode.nix
     ./mako.nix
     ./alacritty.nix
-    ./hyprland.nix
+    ./hyprland/hyprland.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.darcula;

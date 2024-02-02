@@ -93,6 +93,25 @@
     };
   };
 
+  # Rofi application launcher
+
+  programs.rofi = {
+    enable = true;
+    theme = "~/.config/rofi/style.rasi";
+  };
+
+  home.file.".config/rofi/style.rasi".text = with config.colorScheme.palette; ''
+      window {
+        /* properties for window widget */
+        transparency:                "real";
+        x-offset:                    0px;
+        y-offset:                    0px;
+        background-color:            #FF0000A0;
+
+    }
+  '';
+
+  # wlogout 
   programs.wlogout = {
     enable = true;
     style = with config.colorScheme.palette; ''
