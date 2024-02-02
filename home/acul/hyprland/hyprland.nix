@@ -18,6 +18,7 @@
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww init"
+        "${pkgs.eww}/bin/eww daemon"
       ];
 
       input = {
@@ -92,6 +93,13 @@
       ];
     };
   };
+
+  # eww Widgets
+
+  # programs.eww = {
+  #   enable = true;
+  #   configDir = ./eww;
+  # };
 
   # Rofi application launcher
 
