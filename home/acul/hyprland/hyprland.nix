@@ -96,10 +96,11 @@
 
   # eww Widgets
 
-  # programs.eww = {
-  #   enable = true;
-  #   configDir = ./eww;
-  # };
+  programs.eww = {
+    enable = true;
+    package = pkgs.eww-wayland;
+    configDir = ./eww;
+  };
 
   # Rofi application launcher
 

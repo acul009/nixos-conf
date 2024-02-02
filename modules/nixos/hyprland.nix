@@ -12,14 +12,13 @@
     NIX_OZONE_WL = "1";
   };
 
+  services.xserver.displayManager.defaultSession = "hyprland";
+
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   environment.systemPackages = with pkgs; [
     # menubar
     waybar
-
-    # widgets
-    eww-wayland
 
     # audio control via cli
     pamixer
