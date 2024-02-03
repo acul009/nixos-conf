@@ -18,7 +18,7 @@
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww init"
-        "${pkgs.eww}/bin/eww daemon"
+        "${pkgs.eww}/bin/eww daemon && eww open bar"
       ];
 
       input = {
@@ -55,6 +55,7 @@
 
           # debug
           "SUPER, F5, forcerendererreload"
+          "SUPER, F5, exec, eww reload"
         ]
         (
           lib.lists.map

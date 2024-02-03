@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+mkdir -p "$HOME/.cache/song-images"
+
+update_image() {
+   wget -nc -P "$HOME/.cache/song-images" $1
+   filename="$HOME/.cache/song-images/$(basename $1)"
+   ln -s -f "$filename" "$HOME/.cache/current_song"
+   echo "$filename"
+}
+while read -r line
+do
+  update_image $line
+done  < <(playerctl -F metadata mpris:artUrl)

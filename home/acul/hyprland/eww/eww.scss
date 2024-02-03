@@ -1,0 +1,42 @@
+* {
+    all: unset;
+}
+
+.bar {
+    background-color: transparent;
+}
+
+.time_seperator {
+    padding: 0 0.3em;
+}
+
+.clock {
+    font-size: 2em;
+    padding: 0.5em 1em 0 1em;
+}
+
+.player {
+    padding: 0.5em 1em 0 1em;
+}
+
+.player .image {
+    padding: 0 1em;
+}
+
+.player .title {
+    font-size: 1em;
+    padding: 0 1em;
+    font-weight: bold;
+}
+
+.player .artist {
+    font-size: .9em;
+}
+
+.player .album {
+    font-size: .9em;
+}
+
+.player .seperator {
+    padding: 0 0.5em;
+}

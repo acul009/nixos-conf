@@ -1,0 +1,92 @@
+(defwindow bar
+  :monitor 0 ;; wayland users may need this
+  :exclusive true
+  :focusable false
+  :stacking "bottom"
+  :geometry (geometry
+    :anchor "top center"
+    :x "0%" 
+    :y "0%" 
+    :width "100%" 
+    :height "3%")
+  (bar))
+
+
+(defwidget bar[]
+  (box
+    (box
+      :hexpand true
+      :halign "start"
+      (player)
+    )
+    (box
+      :hexpand true
+      :halign "end"
+      (clock)
+    )
+  )
+)
+
+(defvar display_secs false)
+(defvar display_cal false)
+
+(defpoll time :interval "5s"
+  `date +'{"hour":"%H","min":"%M"}'`)
+
+(defpoll secs :interval "100ms" :run-while display_secs "date +%S")
+
+(defwidget clock[]
+  (eventbox
+    :onhover "eww update display_secs=true"
+    :onhoverlost "eww update display_secs=false"
+    (box
+      :class "clock"
+      :space-evenly false
+      (label :text "${time.hour}")
+      (label :text ":" :class "time_seperator")
+      (label :text "${time.min}")
+        (revealer
+        :transition "slideleft"
+			  :reveal display_secs 
+			  :duration "350ms"
+        (box
+          :space-evenly false
+          (label :text ":" :class "time_seperator")
+          (label :text "${secs}")
+        )
+      )
+    )
+  )
+)
+
+(deflisten player `playerctl -F metadata -f '{"title":"{{title}}","artist":"{{artist}}","album":"{{album}}","status":"{{status}}","url":"{{mpris:artUrl}}"}'`)
+;;(deflisten player_image `mkdir -p "$HOME/.cache/song-images" && playerctl -F metadata mpris:artUrl | xargs -n 1 wget -nc -P "$HOME/.cache/song-images"> /dev/null 2>&1 | grep -oh "$HOME/.cache/[^«]*"`)
+(deflisten player_image_download `playerctl -F metadata mpris:artUrl | xargs -n 1 wget -nc -P "$HOME/.cache/song-images"`)
+(deflisten player_image `bash "$HOME/.config/eww/scripts/song-image"`)
+
+(defwidget player[]
+  (box
+    :class "player"
+    :halign "center"
+    (box
+      :width "2em"
+      :height "2em"
+      :class "image"
+      :style 'background-image: url("file://${player_image}");background-size: contain;background-repeat: no-repeat;'
+    )
+    (overlay
+      (box
+        :orientation "v"
+        :width "20em"
+        (label :class "title" :text "${player.title}")
+        (centerbox
+          :orientation "h"
+          (label :class "artist" :text "${player.artist}")
+          (label :class "seperator" :text "-")
+          (label :class "album" :text "${player.album}")
+        )
+      )
+      (box)
+    )
+  )
+)
