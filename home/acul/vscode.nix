@@ -89,6 +89,20 @@
       }
 
 
+      # Typst
+      {
+        name = "typst-lsp";
+        publisher = "nvarner";
+        version = "0.12.1";
+        sha256 = "JcfFaR1wU5XwapH8vnfVy7Cb7DfUWVeoLfBV3wEtCpE=";
+      }
+
+      {
+        name = "typst-preview";
+        publisher = "mgt19937";
+        version = "0.10.7";
+        sha256 = "PSuhdzF0InK9Z3+VMxWjXTUe4HmBQoNoO3O7pKsVktA=";
+      }
     ];
 
     userSettings = {
