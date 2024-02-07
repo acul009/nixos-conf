@@ -12,5 +12,6 @@
     "com.valvesoftware.Steam"
     "org.signal.Signal"
     "org.prismlauncher.PrismLauncher"
+    "org.torproject.torbrowser-launcher"
   ];
 }

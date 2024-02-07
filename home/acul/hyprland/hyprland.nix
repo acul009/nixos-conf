@@ -16,9 +16,9 @@
 
       # Autostart
       exec-once = [
-        "${pkgs.waybar}/bin/waybar"
+        # "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww init"
-        "${pkgs.eww}/bin/eww daemon && eww open bar"
+        "${pkgs.eww-wayland}/bin/eww daemon && eww open bar"
       ];
 
       input = {

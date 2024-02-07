@@ -20,6 +20,9 @@
     # menubar
     waybar
 
+    # widgets
+    eww-wayland
+
     # audio control via cli
     pamixer
 
