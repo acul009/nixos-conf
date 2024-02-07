@@ -45,7 +45,8 @@
           # close window
           "SUPER, X, killactive"
 
-
+          # Screenshot
+          ", Print, exec, grim -g \"$(slurp)\""
 
           "Super, mouse_up, workspace, e+0"
 

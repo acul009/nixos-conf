@@ -20,6 +20,10 @@
     # menubar
     waybar
 
+    # screenshots
+    grim
+    slurp
+
     # widgets
     eww-wayland
 
