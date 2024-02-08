@@ -3,7 +3,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhs;
+    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [ roboto ]);
 
     # disallow manually editing extensions
     mutableExtensionsDir = false;

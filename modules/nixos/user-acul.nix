@@ -16,6 +16,7 @@
       nixpkgs-fmt
       rustup
       gcc
+      roboto
     ];
   };
 
