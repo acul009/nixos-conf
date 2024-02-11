@@ -15,6 +15,12 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  services.logind.extraConfig = ''
+    # don’t shutdown when power button is short-pressed
+    HandlePowerKey=ignore
+  '';
+
+
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
