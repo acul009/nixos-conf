@@ -10,6 +10,7 @@
     "com.discordapp.Discord"
     "com.github.tchx84.Flatseal"
     "com.valvesoftware.Steam"
+    "net.davidotek.pupgui2"
     "org.signal.Signal"
     "org.prismlauncher.PrismLauncher"
     "org.torproject.torbrowser-launcher"
