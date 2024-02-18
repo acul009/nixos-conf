@@ -53,6 +53,7 @@
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
           ./modules/nixos/zsh.nix
+          ./modules/nixos/steam.nix
           ./modules/nixos/teamviewer.nix
         ];
       };

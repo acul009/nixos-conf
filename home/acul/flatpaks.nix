@@ -14,5 +14,6 @@
     "org.signal.Signal"
     "org.prismlauncher.PrismLauncher"
     "org.torproject.torbrowser-launcher"
+    "org.freedesktop.Platform.VulkanLayer.MangoHud"
   ];
 }
