@@ -9,11 +9,9 @@
     "org.mozilla.firefox"
     "com.discordapp.Discord"
     "com.github.tchx84.Flatseal"
-    "com.valvesoftware.Steam"
-    "net.davidotek.pupgui2"
+    "net.davidotek.pupgui2" # protonup
     "org.signal.Signal"
     "org.prismlauncher.PrismLauncher"
     "org.torproject.torbrowser-launcher"
-    "org.freedesktop.Platform.VulkanLayer.MangoHud"
   ];
 }
