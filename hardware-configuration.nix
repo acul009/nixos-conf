@@ -9,13 +9,6 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" "edac_mce_amd" ];
-  boot.extraModulePackages = [ ];
-  boot.kernelParams = [
-    "processor.max_cstate=5"
-  ];
 
   fileSystems."/" =
     {

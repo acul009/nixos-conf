@@ -44,6 +44,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          ./modules/nixos/boot.nix
           ./modules/nixos/cli-tools.nix
           ./modules/nixos/user-acul.nix
           ./modules/nixos/localization.nix
