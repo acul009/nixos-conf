@@ -14,7 +14,10 @@
 
   services.xserver.displayManager.defaultSession = "hyprland";
 
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal = {
+    enable = true;
+    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   environment.systemPackages = with pkgs; [
     # menubar
@@ -41,6 +44,9 @@
 
     # app launcher
     rofi-wayland
+
+    #portal
+    xdg-desktop-portal-hyprland
   ];
 
 }

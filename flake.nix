@@ -49,6 +49,7 @@
           ./modules/nixos/localization.nix
           ./modules/nixos/plasma.nix
           ./modules/nixos/hyprland.nix
+          ./modules/nixos/printing.nix
           ./modules/nixos/flatpak.nix
           ./modules/nixos/nvidia.nix
           ./modules/nixos/pipewire.nix
