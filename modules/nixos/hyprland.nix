@@ -16,6 +16,8 @@
 
   xdg.portal = {
     enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = [ "*" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -43,9 +45,6 @@
 
     # app launcher
     rofi-wayland
-
-    #portal
-    # xdg-desktop-portal-hyprland
   ];
 
 }
