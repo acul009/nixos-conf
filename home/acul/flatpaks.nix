@@ -7,8 +7,6 @@
 
   services.flatpak.uninstallUnmanaged = true;
   services.flatpak.packages = [
-    "org.mozilla.firefox"
-    "com.discordapp.Discord"
     "com.github.tchx84.Flatseal"
     "net.davidotek.pupgui2" # protonup
     "org.signal.Signal"

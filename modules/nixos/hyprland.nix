@@ -29,7 +29,7 @@
     slurp
 
     # widgets
-    eww-wayland
+    eww
 
     # audio control via cli
     pamixer
@@ -45,6 +45,9 @@
 
     # app launcher
     rofi-wayland
+
+    #screen sharing
+    vesktop
   ];
 
 }

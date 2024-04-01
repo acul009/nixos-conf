@@ -18,7 +18,7 @@
       exec-once = [
         # "${pkgs.waybar}/bin/waybar"
         "${pkgs.swww}/bin/swww init"
-        "${pkgs.eww-wayland}/bin/eww daemon && eww open bar"
+        "${pkgs.eww}/bin/eww daemon && eww open bar"
       ];
 
       input = {
