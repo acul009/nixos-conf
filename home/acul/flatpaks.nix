@@ -5,6 +5,7 @@
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
 
+  services.flatpak.uninstallUnmanaged = true;
   services.flatpak.packages = [
     "org.mozilla.firefox"
     "com.discordapp.Discord"

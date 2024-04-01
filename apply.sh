@@ -5,4 +5,4 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
-nixos-rebuild --flake $(dirname $0) switch --show-trace
+nixos-rebuild --flake $(dirname $0) switch
