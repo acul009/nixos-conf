@@ -1,5 +1,7 @@
 { inputs, config, pkgs, ... }:
-
+let
+  extensions = inputs.nix-vscode-extensions.extensions.${pkgs.system};
+in
 {
 
   programs.vscode = {
@@ -8,7 +10,9 @@
     # disallow manually editing extensions
     mutableExtensionsDir = false;
 
-    extensions = with pkgs.nix-vscode-extensions; [
+    package = pkgs.vscodium;
+
+    extensions = with extensions.open-vsx; [
       # # Basic
       mhutchie.git-graph
       vscodevim.vim
