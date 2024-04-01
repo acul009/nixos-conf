@@ -12,19 +12,18 @@ in
 
     package = pkgs.vscodium;
 
-    extensions = with extensions.open-vsx; [
+    extensions = with extensions; [
       # # Basic
-      mhutchie.git-graph
-      vscodevim.vim
-      # Codeium.codeium
+      open-vsx.mhutchie.git-graph
+      open-vsx.vscodevim.vim
 
       # # Nix & Nixos
-      jnoortheen.nix-ide
+      open-vsx.jnoortheen.nix-ide
 
       # # Rust
-      rust-lang.rust-analyzer
-      bungcip.better-toml
-      serayuzgur.crates
+      open-vsx.rust-lang.rust-analyzer
+      open-vsx.bungcip.better-toml
+      open-vsx.serayuzgur.crates
     ];
 
     userSettings = {
