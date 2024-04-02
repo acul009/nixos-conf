@@ -54,6 +54,7 @@
     git
     efibootmgr
     htop
+    killall
     mcelog
   ];
 

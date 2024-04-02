@@ -22,7 +22,7 @@
 
   environment.systemPackages = with pkgs; [
     # menubar
-    waybar
+    # waybar
 
     # screenshots
     grim
