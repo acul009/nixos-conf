@@ -109,161 +109,176 @@
 
       #clock {
         font-size: 36px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: transparent;
+      }
+
+      #tray {
         background-color: transparent;
       }
     '';
 
+    settings = {
+      mainbar = {
+        layer = "top";
+        position = "top";
+        height = 50;
 
-    clock = {
-      timezone = "Europe/Berlin";
+        modules-left = [ ];
+        modules-center = [ ];
+        modules-right = [ "tray" "clock" ];
+
+        clock = {
+          timezone = "Europe/Berlin";
+        };
+
+        tray = {
+          show-passive-items = true;
+          icon-size = 21;
+          spacing = 10;
+        };
+
+      };
     };
-
-    tray = {
-      show-passive-items = true;
-      icon-size = 21;
-      spacing = 10;
-    };
-
   };
-};
-};
 
-# eww Widgets
+  # eww Widgets
 
-programs.eww = {
-enable = true;
-configDir = ./eww;
-};
+  programs.eww = {
+    enable = true;
+    configDir = ./eww;
+  };
 
-# Rofi application launcher
+  # Rofi application launcher
 
-programs.rofi = {
-enable = true;
-plugins = [ pkgs.rofi-calc pkgs.rofi-emoji pkgs.rofi-systemd ];
-terminal = "alycritty";
-extraConfig = {
-modi = "drun,run";
-};
-theme =
-let
-# Use `mkLiteral` for string-like values that should show without
-# quotes, e.g.:
-# {
-#   foo = "abc"; => foo: "abc";
-#   bar = mkLiteral "abc"; => bar: abc;
-# };
-inherit (config.lib.formats.rasi) mkLiteral;
-in
-with config.colorScheme.palette;
-{
-"*" = {
-foreground-color = mkLiteral "#${base06}";
-text-color = mkLiteral "#${base06}";
-border-color = mkLiteral "#${base09}";
-background-color = mkLiteral "transparent";
-};
+  programs.rofi = {
+    enable = true;
+    plugins = [ pkgs.rofi-calc pkgs.rofi-emoji pkgs.rofi-systemd ];
+    terminal = "alycritty";
+    extraConfig = {
+      modi = "drun,run";
+    };
+    theme =
+      let
+        # Use `mkLiteral` for string-like values that should show without
+        # quotes, e.g.:
+        # {
+        #   foo = "abc"; => foo: "abc";
+        #   bar = mkLiteral "abc"; => bar: abc;
+        # };
+        inherit (config.lib.formats.rasi) mkLiteral;
+      in
+      with config.colorScheme.palette;
+      {
+        "*" = {
+          foreground-color = mkLiteral "#${base06}";
+          text-color = mkLiteral "#${base06}";
+          border-color = mkLiteral "#${base09}";
+          background-color = mkLiteral "transparent";
+        };
 
-"#window" = {
-transparency = "real";
-location = mkLiteral "center";
-anchor = mkLiteral "center";
-fullscreen = false;
-width = mkLiteral "500px";
-x-offset = mkLiteral "0px";
-y-offset = mkLiteral "0px";
+        "#window" = {
+          transparency = "real";
+          location = mkLiteral "center";
+          anchor = mkLiteral "center";
+          fullscreen = false;
+          width = mkLiteral "500px";
+          x-offset = mkLiteral "0px";
+          y-offset = mkLiteral "0px";
 
-enabled = true;
-margin = mkLiteral "0px";
-padding = mkLiteral "0px";
-border-radius = mkLiteral "40px";
-cursor = "default";
-background-color = mkLiteral "#${base00}80";
-};
+          enabled = true;
+          margin = mkLiteral "0px";
+          padding = mkLiteral "0px";
+          border-radius = mkLiteral "40px";
+          cursor = "default";
+          background-color = mkLiteral "#${base00}80";
+        };
 
-"#mainbox" = {
-enabled = true;
-spacing = mkLiteral "20px";
-padding = mkLiteral "40px";
-border-radius = mkLiteral "40px";
-children = [ "inputbar" "listview" ];
-};
+        "#mainbox" = {
+          enabled = true;
+          spacing = mkLiteral "20px";
+          padding = mkLiteral "40px";
+          border-radius = mkLiteral "40px";
+          children = [ "inputbar" "listview" ];
+        };
 
-"#inputbar" = {
-enabled = true;
-spacing = mkLiteral "15px";
-margin = mkLiteral "0px";
-border = mkLiteral "2px";
-border-radius = mkLiteral "20px";
-children = [ "textbox-prompt-colon" "entry" ];
-};
+        "#inputbar" = {
+          enabled = true;
+          spacing = mkLiteral "15px";
+          margin = mkLiteral "0px";
+          border = mkLiteral "2px";
+          border-radius = mkLiteral "20px";
+          children = [ "textbox-prompt-colon" "entry" ];
+        };
 
-"#textbox-prompt-colon" = {
-enabled = true;
-expand = false;
-padding = mkLiteral "0px 0px 0px 20px";
-border-radius = mkLiteral "8px";
-vertical-align = mkLiteral "0.5";
-str = ">";
-};
+        "#textbox-prompt-colon" = {
+          enabled = true;
+          expand = false;
+          padding = mkLiteral "0px 0px 0px 20px";
+          border-radius = mkLiteral "8px";
+          vertical-align = mkLiteral "0.5";
+          str = ">";
+        };
 
-"#entry" = {
-enabled = true;
-padding = mkLiteral "16px 0px";
-border = mkLiteral "0px";
-cursor = "test";
-vertical-align = mkLiteral "0.5";
-};
+        "#entry" = {
+          enabled = true;
+          padding = mkLiteral "16px 0px";
+          border = mkLiteral "0px";
+          cursor = "test";
+          vertical-align = mkLiteral "0.5";
+        };
 
-"#listview" = {
-enabled = true;
-columns = 1;
-lines = 5;
-cycle = true;
-dynamic = true;
-scrollbar = false;
-layout = mkLiteral "vertical";
-reverse = false;
-fixed-height = true;
-fixed-columns = true;
+        "#listview" = {
+          enabled = true;
+          columns = 1;
+          lines = 5;
+          cycle = true;
+          dynamic = true;
+          scrollbar = false;
+          layout = mkLiteral "vertical";
+          reverse = false;
+          fixed-height = true;
+          fixed-columns = true;
 
-spacing = mkLiteral "10px";
-background-color = mkLiteral "transparent";
-cursor = "default";
-};
+          spacing = mkLiteral "10px";
+          background-color = mkLiteral "transparent";
+          cursor = "default";
+        };
 
-"#element" = {
-enabled = true;
-spacing = mkLiteral "10px";
-margin = mkLiteral "0px";
-padding = mkLiteral "10px";
-border = mkLiteral "0px solid";
-border-radius = mkLiteral "10px";
-background-color = mkLiteral "transparent";
-cursor = mkLiteral "pointer";
-};
+        "#element" = {
+          enabled = true;
+          spacing = mkLiteral "10px";
+          margin = mkLiteral "0px";
+          padding = mkLiteral "10px";
+          border = mkLiteral "0px solid";
+          border-radius = mkLiteral "10px";
+          background-color = mkLiteral "transparent";
+          cursor = mkLiteral "pointer";
+        };
 
-"#element selected.normal" = {
-background-image = mkLiteral "linear-gradient(to right, #${base01}A0, #${base02}A0)";
-};
+        "#element selected.normal" = {
+          background-image = mkLiteral "linear-gradient(to right, #${base01}A0, #${base02}A0)";
+        };
 
-"#element-icon" = {
-size = mkLiteral "48px";
-cursor = mkLiteral "inherit";
-};
+        "#element-icon" = {
+          size = mkLiteral "48px";
+          cursor = mkLiteral "inherit";
+        };
 
-"#element-text" = {
-cursor = mkLiteral "inherit";
-vertical-align = mkLiteral "0.5";
-horizontal-align = mkLiteral "0.5";
-};
+        "#element-text" = {
+          cursor = mkLiteral "inherit";
+          vertical-align = mkLiteral "0.5";
+          horizontal-align = mkLiteral "0.5";
+        };
 
-};
-};
+      };
+  };
 
-# wlogout 
-programs.wlogout = {
-enable = true;
-style = with config.colorScheme.palette; ''
+  # wlogout 
+  programs.wlogout = {
+    enable = true;
+    style = with config.colorScheme.palette; ''
       * {
         font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
       	background-image: none;
@@ -340,7 +355,7 @@ style = with config.colorScheme.palette; ''
       }
 
     '';
-};
+  };
 }
 
 
