@@ -34,7 +34,6 @@
       bind = lib.lists.flatten [
         [
           # open app launcher
-          "CTRL SHIFT, SPACE, exec,rofi -show drun -show-icons"
           "SUPER, SPACE, exec,rofi -show drun -show-icons"
           "SUPER, S, exec,rofi -show drun -show-icons"
 
