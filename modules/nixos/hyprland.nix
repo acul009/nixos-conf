@@ -12,7 +12,8 @@
     NIX_OZONE_WL = "1";
   };
 
-  services.xserver.displayManager.defaultSession = "hyprland";
+  services.displayManager.sddm.enable = true;
+  services.displayManager.defaultSession = "hyprland";
 
   xdg.portal = {
     enable = true;
