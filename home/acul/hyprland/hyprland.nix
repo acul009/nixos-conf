@@ -1,6 +1,10 @@
 { pkgs, lib, config, ... }:
 
 {
+  home.packages = with pkgs; [
+    lxqt.lxqt-policykit
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -18,6 +22,7 @@
       exec-once = [
         "waybar"
         "${pkgs.swww}/bin/swww init"
+        "lxqt-policykit-agent"
         # "${pkgs.eww}/bin/eww daemon && eww open bar"
       ];
 
