@@ -58,6 +58,7 @@
           ./modules/nixos/overrides.nix
           ./modules/nixos/steam.nix
           ./modules/nixos/teamviewer.nix
+          ./modules/nixos/partition-manager.nix
         ];
       };
 
