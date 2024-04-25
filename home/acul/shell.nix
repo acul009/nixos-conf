@@ -4,7 +4,7 @@
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
   };
   programs.starship.enableZshIntegration = true;
   programs.dircolors.enableZshIntegration = true;
@@ -14,7 +14,44 @@
     settings = {
 
       add_newline = false;
-      format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+      format = ''
+        $fill\[ $status$cmd_duration\]$fill
+        $os$shlvl$username@$shell$directory$git_branch$git_commit$git_state$git_status$jobs$sudo$nix_shell$character
+      '';
+
+      fill = {
+        symbol = "-";
+        style = "";
+      };
+
+      status = {
+        disabled = false;
+        success_symbol = "✅";
+        format = "[$symbol]($style)";
+      };
+
+      cmd_duration = {
+        disabled = false;
+        min_time = 0;
+      };
+
+      shlvl = {
+        disabled = false;
+        symbol = "λ ";
+      };
+
+      sudo = {
+        disabled = false;
+        format = "[$symbol]($style)";
+      };
+
+      username = {
+        disabled = false;
+        show_always = true;
+        format = "[$user]($style)";
+        style_user = "bright-white bold";
+        style_root = "bright-red bold";
+      };
 
       shell = {
         disabled = false;
@@ -24,9 +61,17 @@
         zsh_indicator = "[ZSH](bright-white) ";
       };
 
-      username = {
-        style_user = "bright-white bold";
-        style_root = "bright-red bold";
+      directory = {
+        disabled = false;
+        home_symbol = "🏠";
+      };
+
+      git_state = {
+        disabled = true;
+      };
+
+      git_status = {
+        disabled = true;
       };
 
       nix_shell = {
@@ -36,10 +81,6 @@
         format = "[$symbol$state]($style) ";
       };
 
-      shlvl = {
-        disabled = false;
-        symbol = "λ ";
-      };
       haskell.symbol = " ";
     };
   };
