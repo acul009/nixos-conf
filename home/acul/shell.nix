@@ -15,7 +15,7 @@
 
       add_newline = false;
       format = ''
-        $fill\[ $status$cmd_duration\]$fill
+        $fill\   [ $status $cmd_duration\]   $fill
         $os$shlvl$username@$shell$directory$git_branch$git_commit$git_state$git_status$jobs$sudo$nix_shell$character
       '';
 
@@ -84,7 +84,7 @@
       nix_shell = {
         disabled = false;
         impure_msg = "";
-        symbol = "❄️";
+        symbol = "❄️ ";
         format = "[$symbol$state]($style) ";
       };
 
