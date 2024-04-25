@@ -14,5 +14,9 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
+
   users.defaultUserShell = pkgs.zsh;
 }

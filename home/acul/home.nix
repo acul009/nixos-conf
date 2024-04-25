@@ -8,6 +8,7 @@
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    ./shell.nix
     ./git.nix
     ./flatpaks.nix
     ./vscode.nix
@@ -89,4 +90,5 @@
 
   services.nextcloud-client.enable = true;
   services.nextcloud-client.startInBackground = true;
+
 }
