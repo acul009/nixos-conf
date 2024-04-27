@@ -44,9 +44,6 @@
     # notification daemon
     mako
 
-    # app launcher
-    rofi-wayland
-
     #screen sharing
     vesktop
   ];
