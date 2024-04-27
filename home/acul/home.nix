@@ -91,4 +91,5 @@
   services.nextcloud-client.enable = true;
   services.nextcloud-client.startInBackground = true;
 
+  services.network-manager-applet.enable = true;
 }
