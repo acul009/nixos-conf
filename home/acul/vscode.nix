@@ -24,6 +24,7 @@ in
       open-vsx.rust-lang.rust-analyzer
       open-vsx.bungcip.better-toml
       open-vsx.serayuzgur.crates
+      open-vsx.codeium.codeium
     ];
 
     userSettings = {
