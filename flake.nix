@@ -35,30 +35,39 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      hosts = [
+        "acul-Kommandozentrale"
+        ];
     in
     {
+
+      nixosConfigurations = genAttrs hosts (name: {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./modules/module-list.nix
+          ./hosts/${name}.nix
+        ]
+      });
 
       nixosConfigurations.acul-Battlestation = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          ./modules/nixos/boot.nix
-          ./modules/nixos/cli-tools.nix
-          ./modules/nixos/user-acul.nix
-          ./modules/nixos/localization.nix
-          ./modules/nixos/plasma.nix
-          ./modules/nixos/hyprland.nix
-          ./modules/nixos/printing.nix
-          ./modules/nixos/flatpak.nix
-          ./modules/nixos/nvidia.nix
-          ./modules/nixos/pipewire.nix
-          ./modules/nixos/zsh.nix
-          ./modules/nixos/overrides.nix
-          ./modules/nixos/steam.nix
-          ./modules/nixos/teamviewer.nix
-          ./modules/nixos/partition-manager.nix
+          ./modules/legacy/boot.nix
+          ./modules/legacy/cli-tools.nix
+          ./modules/legacy/user-acul.nix
+          ./modules/legacy/localization.nix
+          ./modules/legacy/plasma.nix
+          ./modules/legacy/hyprland.nix
+          ./modules/legacy/printing.nix
+          ./modules/legacy/flatpak.nix
+          ./modules/legacy/nvidia.nix
+          ./modules/legacy/pipewire.nix
+          ./modules/legacy/zsh.nix
+          ./modules/legacy/overrides.nix
+          ./modules/legacy/steam.nix
+          ./modules/legacy/teamviewer.nix
+          ./modules/legacy/partition-manager.nix
         ];
       };
 
