@@ -42,9 +42,10 @@ with lib;
     # default stuff
     {
       boot.kernelPackages = pkgs.linuxPackages_latest;
-      boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
+      boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
       boot.initrd.kernelModules = [ "dm-snapshot" ];
       boot.extraModulePackages = [ ];
+      hardware.enableRedistributableFirmware = true;
     }
 
     # efi config
@@ -70,8 +71,17 @@ with lib;
         "kvm-amd"
         "edac_mce_amd"
       ];
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     })
 
+    (mkIf (config.woelfchen.boot.processorVendor == "intel") {
+      boot.kernelModules = [
+        "kvm-intel"
+      ];
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      hardware.cpu.intel.updateMicrocode = true;
+    })
   ]);
 
 }

@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./home/zsh.nix
+    ./home/firefox.nix
     ./home/vscode.nix
+    ./home/zsh.nix
   ];
 }
