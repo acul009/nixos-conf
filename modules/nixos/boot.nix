@@ -4,26 +4,21 @@ with lib;
 {
   options = {
     boot = {
-      useGrub = mkOption {
-        type = types.bool;
-        default = true;
-        description = ''
-          Configures booting through grub
-        '';
-      };
+      useGrub = mkEnableOption "";
 
       useEfi = mkOption {
         type = types.bool;
         description = ''
           tells the configuration to target efi systems
-        ''
+        '';
       };
 
       useOSProber = mkOption {
         type = types.bool;
+        default = mkIf (!config.boot.useGrub) false;
         description = ''
           tells the configuration to use os-prober
-        ''
+        '';
       };
 
       useCStateLimiter = mkOption {
@@ -31,18 +26,18 @@ with lib;
         default = false;
         description = ''
           tells the configuration to limit the cstate to 5 on boot
-        ''
+        '';
       };
 
       processorVendor = mkOption {
         type = types.enum [ "amd" "intel" ];
-      }
+      };
 
 
     };
   };
 
-  config = mkIf config.boot.useGrub mkMerge [
+  config = mkIf config.boot.useGrub (mkMerge [
 
     # default stuff
     {
@@ -53,30 +48,30 @@ with lib;
     }
 
     # efi config
-    mkIf config.boot.useEfi {
+    (mkIf config.boot.useEfi {
       boot.loader.grub.efiSupport = true;
       boot.loader.grub.device = "nodev";
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.efi.efiSysMountPoint = "/boot";
-    }
+    })
 
-    mkIf config.boot.useOSProber {
-      boot.loader.osProber.enable = true;
-    }
+    (mkIf config.boot.useOSProber {
+      boot.loader.grub.useOSProber = true;
+    })
 
-    mkIf config.boot.useCStateLimiter {
+    (mkIf config.boot.useCStateLimiter {
       boot.kernelParams = [
         "processor.max_cstate=5"
       ];
-    }
+    })
 
-    mkIf config.boot.processorVendor == "amd" {
+    (mkIf (config.boot.processorVendor == "amd") {
       boot.kernelModules = [
         "kvm-amd"
         "edac_mce_amd"
-      ]
-    }
+      ];
+    })
 
-  ];
+  ]);
 
 }

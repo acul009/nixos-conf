@@ -1,3 +1,6 @@
-[
-  ./nixos/boot.nix
-]
+{ ... }:
+{
+  imports = [
+    ./nixos/boot.nix
+  ];
+}
