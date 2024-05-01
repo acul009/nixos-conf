@@ -2,7 +2,8 @@
 {
   imports = [
     ./nixos/boot.nix
-    ./nixos/zsh.nix
+    ./nixos/git.nix
     ./nixos/user.nix
+    ./nixos/zsh.nix
   ];
 }
