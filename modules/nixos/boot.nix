@@ -3,7 +3,7 @@
 with lib;
 {
   options = {
-    boot = {
+    woelfchen.boot = {
       useGrub = mkEnableOption "";
 
       useEfi = mkOption {
@@ -37,7 +37,7 @@ with lib;
     };
   };
 
-  config = mkIf config.boot.useGrub (mkMerge [
+  config = mkIf config.woelfchen.boot.useGrub (mkMerge [
 
     # default stuff
     {
@@ -48,24 +48,24 @@ with lib;
     }
 
     # efi config
-    (mkIf config.boot.useEfi {
+    (mkIf config.woelfchen.boot.useEfi {
       boot.loader.grub.efiSupport = true;
       boot.loader.grub.device = "nodev";
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.efi.efiSysMountPoint = "/boot";
     })
 
-    (mkIf config.boot.useOSProber {
+    (mkIf config.woelfchen.boot.useOSProber {
       boot.loader.grub.useOSProber = true;
     })
 
-    (mkIf config.boot.useCStateLimiter {
+    (mkIf config.woelfchen.boot.useCStateLimiter {
       boot.kernelParams = [
         "processor.max_cstate=5"
       ];
     })
 
-    (mkIf (config.boot.processorVendor == "amd") {
+    (mkIf (config.woelfchen.boot.processorVendor == "amd") {
       boot.kernelModules = [
         "kvm-amd"
         "edac_mce_amd"
