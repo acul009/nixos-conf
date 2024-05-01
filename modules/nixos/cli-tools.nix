@@ -13,6 +13,10 @@ with lib;
     environment.systemPackages = with pkgs; [
       nmap
       dig
+      killall
+      htop
+      wget
+      nano
     ];
   };
 }

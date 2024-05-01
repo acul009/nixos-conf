@@ -64,6 +64,11 @@ with lib;
           sensitivity = -0.2;
           # mouse acceleration
           accel_profile = "flat";
+
+          touchpad = {
+            natural_scroll = true;
+            scroll_factor = 0.3;
+          };
         };
 
         # keybinds
@@ -175,6 +180,7 @@ with lib;
 
         window#waybar {
           background: transparent;
+          padding-bottom: 0;
           border-bottom: none;
         }
 
@@ -188,6 +194,19 @@ with lib;
         #tray {
           background-color: transparent;
         }
+
+        #battery, #battery.charging, #battery.plugged, #battery.critical {
+          background-color: transparent;
+        }
+
+        #battery, #battery.charging, #battery.plugged {
+          color: #00ff00;
+        }
+
+        #battery {
+          font-size: 18px;
+        }
+
       '';
 
       settings = {
@@ -198,7 +217,7 @@ with lib;
 
           modules-left = [ ];
           modules-center = [ ];
-          modules-right = [ "tray" "clock" ];
+          modules-right = [ "tray" "battery" "clock" ];
 
           clock = {
             timezone = "Europe/Berlin";
@@ -208,6 +227,16 @@ with lib;
             show-passive-items = true;
             icon-size = 21;
             spacing = 10;
+          };
+
+          battery = {
+            format = "{capacity}% {icon}";
+            format-icons = [ "" "" "" "" "" ];
+
+            states = {
+              warning = 30;
+              critical = 15;
+            };
           };
 
         };

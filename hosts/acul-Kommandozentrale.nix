@@ -1,17 +1,13 @@
 { lib, config, pkgs, ... }:
 
 {
-  imports = [
-    ../modules/legacy/kommandozentrale/configuration.nix
-  ];
-
   networking.hostName = "acul-Kommandozentrale";
 
   woelfchen = {
     boot = {
       useGrub = true;
       useEfi = true;
-      useOSProber = true;
+      useOSProber = false;
       processorVendor = "intel";
     };
 
@@ -22,6 +18,7 @@
     locale = "german";
     sound.enable = true;
     hyprland.enable = true;
+    plasma.enable = true;
   };
 
   fileSystems = {

@@ -28,17 +28,5 @@ with lib;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config.common.default = [ "*" ];
     };
-
-    environment.systemPackages = with pkgs; [
-      # menubar
-      # waybar
-
-      # screenshots
-      grim
-      slurp
-
-      # notification daemon
-      mako
-    ];
   };
 }
