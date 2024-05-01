@@ -21,6 +21,7 @@
 
     locale = "german";
     sound.enable = true;
+    hyprland.enable = true;
   };
 
   fileSystems = {
