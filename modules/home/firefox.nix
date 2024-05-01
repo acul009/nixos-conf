@@ -10,7 +10,7 @@ with lib;
   config = mkIf config.woelfchen.firefox.enable {
 
     home.packages = with pkgs; [
-      nixpkgs-fmt
+      firefox
     ];
   };
 

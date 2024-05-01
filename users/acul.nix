@@ -5,6 +5,10 @@
     firefox.enable = true;
     vscode.enable = true;
     zsh.enable = true;
+    network-manager.enable = true;
+    hyprland = {
+      enable = true;
+    };
   };
 
 

@@ -6,6 +6,7 @@
     ./nixos/cli-tools.nix
     ./nixos/default-timezone.nix
     ./nixos/git.nix
+    ./nixos/hyprland.nix
     ./nixos/locale.nix
     ./nixos/networking.nix
     ./nixos/sound.nix
