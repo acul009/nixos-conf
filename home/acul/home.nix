@@ -11,10 +11,8 @@
     ./shell.nix
     ./git.nix
     ./flatpaks.nix
-    ./vscode.nix
     ./mako.nix
     ./alacritty.nix
-    ./hyprland/hyprland.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.darcula;

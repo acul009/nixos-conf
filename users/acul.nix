@@ -2,6 +2,7 @@
 
 {
   woelfchen = {
+    discord.enable = true;
     firefox.enable = true;
     vscode.enable = true;
     zsh.enable = true;

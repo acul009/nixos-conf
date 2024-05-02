@@ -21,6 +21,7 @@ with lib;
     };
 
     services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.wayland.enable = true;
     services.displayManager.defaultSession = "hyprland";
 
     services.gnome.gnome-keyring.enable = true;
@@ -31,5 +32,10 @@ with lib;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config.common.default = [ "*" ];
     };
+
+    services.logind.extraConfig = ''
+      # don’t shutdown when power button is short-pressed
+      HandlePowerKey=ignore
+    '';
   };
 }

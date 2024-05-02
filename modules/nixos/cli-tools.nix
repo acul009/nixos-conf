@@ -11,12 +11,13 @@ with lib;
 
   config = mkIf config.woelfchen.cli-tools.enable {
     environment.systemPackages = with pkgs; [
-      nmap
       dig
-      killall
       htop
-      wget
+      killall
       nano
+      nmap
+      vim
+      wget
     ];
   };
 }
