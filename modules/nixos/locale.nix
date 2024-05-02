@@ -8,6 +8,11 @@ with lib;
 
   config = mkIf (config.woelfchen.locale == "german") {
 
+    console = {
+      font = "Lat2-Terminus16";
+      useXkbConfig = true; # use xkb.options in tty.
+    };
+
     i18n.defaultLocale = "de_DE.UTF-8";
 
     i18n.extraLocaleSettings = {

@@ -17,7 +17,14 @@
 
     locale = "german";
     sound.enable = true;
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      monitors = [
+        "desc:Iiyama North America PLX2472HC 1153270400628, 1920x1080@60, 0x460, 1"
+
+        "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@120, 1920x0, 1"
+      ];
+    };
     plasma.enable = true;
   };
 

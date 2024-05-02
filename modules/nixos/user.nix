@@ -2,6 +2,11 @@
 
 with lib;
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+
   options = {
     woelfchen.user = {
       username = mkOption {
@@ -10,7 +15,7 @@ with lib;
     };
 
   };
-  
+
 
   config = {
     users.users.${config.woelfchen.user.username} = {

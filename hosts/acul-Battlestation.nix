@@ -18,12 +18,13 @@
       useCStateLimiter = true;
       processorVendor = "amd";
     };
-    nvidia.enable = true;
+    #nvidia.enable = true;
 
     user.username = "acul";
     locale = "german";
     sound.enable = true;
     hyprland.enable = true;
+    plasma.enable = true;
     steam.enable = true;
   };
 
@@ -46,6 +47,7 @@
       ];
     };
   };
+  swapDevices = [ ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

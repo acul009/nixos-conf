@@ -10,15 +10,8 @@ with lib;
   };
 
   config = mkIf config.woelfchen.experimental.enable {
-    programs.git = {
-      enable = true;
-      config = {
-        init = {
-          defaultBranch = "main";
-        };
-
-        credential.helper = "cache --timeout=3600";
-      };
-    };
+    nix.extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 }
