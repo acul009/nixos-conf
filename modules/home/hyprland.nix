@@ -125,10 +125,20 @@ with lib;
           ", XF86AudioPrev, exec, playerctl previous"
         ];
 
+        env = [
+          "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "LIBVA_DRIVER_NAME,nvidia"
+        ];
+
         monitor = config.woelfchen.hyprland.monitors ++ [
           # default values
           ",preferred,auto,1"
         ];
+
+        misc = {
+          force_default_wallpaper = 2;
+        };
       };
     };
 
