@@ -1,7 +1,6 @@
 { lib, config, pkgs, ... }:
 
 {
-  networking.hostName = "acul-Kommandozentrale";
 
   woelfchen = {
     boot = {

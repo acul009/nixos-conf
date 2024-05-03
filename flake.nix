@@ -38,13 +38,16 @@
       hosts = [
         "acul-Kommandozentrale"
         "acul-Battlestation"
-        ];
+      ];
     in
     {
 
       nixosConfigurations = inputs.nixpkgs.lib.genAttrs hosts (name: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          {
+            networking.hostName = name;
+          }
           inputs.home-manager.nixosModules.home-manager
           ./modules/nixos-modules.nix
           ./hosts/${name}.nix
