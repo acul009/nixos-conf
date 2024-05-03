@@ -188,18 +188,31 @@ with lib;
     programs.waybar = {
       enable = true;
       style = ''
-        ${builtins.readFile "${pkgs.waybar}/etc/xdg/waybar/style.css"}
+
+        * {
+          padding: 0;
+          margin: 0;
+          min-height: 0;
+        }
 
         window#waybar {
-          background: transparent;
-          padding-bottom: 0;
+          background-color: transparent;
           border-bottom: none;
+          color: white;
         }
+
+        tooltip {
+          background: rgba(43, 48, 59, 0.5);
+          border: 1px solid rgba(100, 114, 125, 0.8);
+        }
+        tooltip label {
+          color: white;
+        }
+
 
         #clock {
           font-size: 36px;
-          padding-left: 10px;
-          padding-right: 10px;
+          padding: 0 10px;
           background-color: transparent;
         }
 
@@ -219,6 +232,15 @@ with lib;
           font-size: 18px;
         }
 
+        #window, #workspaces, #mpris, #systemstatus {
+          border-radius: 10px;
+          padding: 0 10px;
+          margin: 10px;
+          border: 1px solid rgba(100, 114, 125, 0.8);
+          background: rgba(43, 48, 59, 0.5);
+        }
+
+
       '';
 
       settings = {
@@ -227,9 +249,35 @@ with lib;
           position = "top";
           height = 50;
 
-          modules-left = [ ];
-          modules-center = [ ];
-          modules-right = [ "tray" "battery" "clock" ];
+          modules-left = [ "mpris" "hyprland/window" ];
+          modules-center = [ "hyprland/workspaces" ];
+          modules-right = [ "tray" "group/systemstatus" "clock" ];
+
+          mpris = {
+            format = "DEFAULT: {player_icon} {dynamic}";
+            format-paused = "DEFAULT: {status_icon} <i>{dynamic}</i>";
+          };
+
+          "hyprland/window" = {
+            format = "> {}";
+          };
+
+          "hyprland/workspaces" = { };
+
+          "group/systemstatus" = {
+            orientation = "horizontal";
+            modules = [
+              "cpu"
+              "memory"
+              "battery"
+              "bluetooth"
+              "network"
+            ];
+          };
+
+          bluetooth = {
+            format-no-controller = "";
+          };
 
           clock = {
             timezone = "Europe/Berlin";
