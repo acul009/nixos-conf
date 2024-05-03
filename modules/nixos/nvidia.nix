@@ -44,16 +44,20 @@ with lib;
         nvidiaSettings = true;
 
         # causes flickering
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        # package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-        # hardware acceleration
-        environment.systemPackages = with pkgs; [
-          libva-utils
-          vdpauinfo
-        ];
-      })
+        # way older driver - no flickering
+        package = config.boot.kernelPackages.nvidiaPackages.production;
+      };
 
-      (mkIf config.services.displayManager.sddm.enable {
+      # hardware acceleration
+      environment.systemPackages = with pkgs; [
+        libva-utils
+        vdpauinfo
+      ];
+    })
+
+    (mkIf config.services.displayManager.sddm.enable {
       # sddm with wayland doesn't work with nvidia
       services.displayManager.sddm.wayland.enable = mkForce false;
       services.xserver.enable = true;
