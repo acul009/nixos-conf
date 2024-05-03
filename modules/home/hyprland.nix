@@ -25,6 +25,9 @@ with lib;
     # requirements
     home.packages = with pkgs;      [
 
+      #media control
+      playerctl
+
       # policykit agent
       lxqt.lxqt-policykit
 
@@ -212,7 +215,7 @@ with lib;
 
         #clock {
           font-size: 36px;
-          padding: 0 10px;
+          padding: 10px 10px 0 10px;
           background-color: transparent;
         }
 
@@ -232,12 +235,16 @@ with lib;
           font-size: 18px;
         }
 
-        #window, #workspaces, #mpris, #systemstatus {
+        #window, #workspaces, #mpris, #systemstatus, #tray {
           border-radius: 10px;
-          padding: 0 10px;
-          margin: 10px;
+          padding: 10px 10px;
+          margin: 10px 10px 0 10px;
           border: 1px solid rgba(100, 114, 125, 0.8);
           background: rgba(43, 48, 59, 0.5);
+        }
+
+        #cpu, #memory, #battery, #bluetooth {
+          padding: 0 5px;
         }
 
 
@@ -262,7 +269,11 @@ with lib;
             format = "> {}";
           };
 
-          "hyprland/workspaces" = { };
+          "hyprland/workspaces" = {
+            window-rewrite = {
+              "class<firefox>" = "󰈹";
+            };
+          };
 
           "group/systemstatus" = {
             orientation = "horizontal";
@@ -271,8 +282,17 @@ with lib;
               "memory"
               "battery"
               "bluetooth"
-              "network"
             ];
+          };
+
+          cpu = {
+            format = "  {usage}%";
+            max-length = 10;
+          };
+
+          memory = {
+            format = "   {}%";
+            max-length = 10;
           };
 
           bluetooth = {
