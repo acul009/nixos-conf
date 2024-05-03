@@ -54,7 +54,6 @@ with lib;
           "waybar"
           "${pkgs.swww}/bin/swww init"
           "lxqt-policykit-agent"
-          # "${pkgs.eww}/bin/eww daemon && eww open bar"
         ];
 
         input = {
@@ -69,6 +68,10 @@ with lib;
             natural_scroll = true;
             scroll_factor = 0.3;
           };
+        };
+
+        gestures = {
+          workspace_swipe = true;
         };
 
         # keybinds
@@ -96,7 +99,6 @@ with lib;
 
             # debug
             "SUPER, F5, forcerendererreload"
-            "SUPER, F5, exec, eww reload"
           ]
           (
             lib.lists.map
