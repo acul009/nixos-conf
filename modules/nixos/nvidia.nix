@@ -43,11 +43,8 @@ with lib;
         # accessible via `nvidia-settings`.
         nvidiaSettings = true;
 
-        # causes flickering
-        # package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-        # way older driver - no flickering
-        package = config.boot.kernelPackages.nvidiaPackages.production;
+        # Optionally, you may need to select the appropriate driver version for your specific GPU.
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
 
       # hardware acceleration
