@@ -18,6 +18,7 @@ with lib;
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIX_OZONE_WL = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
     };
 
     services.displayManager.sddm.enable = true;
