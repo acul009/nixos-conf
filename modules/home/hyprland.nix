@@ -212,19 +212,22 @@ with lib;
           color: white;
         }
 
+        menu, .menu, .context-menu.context-menu {
+          padding: 6px 6px; 
+          background: rgba(43, 48, 59, 0.8);
+          border: 1px solid rgba(100, 114, 125, 0.8);
+        }
+
+        menu menuitem, .menu menuitem, .context-menu menuitem {
+          margin: 0;
+          border-radius: 6px;
+          padding: 7px 6px;
+        }
+
 
         #clock {
           font-size: 36px;
-          padding: 10px 10px 0 10px;
-          background-color: transparent;
-        }
-
-        #tray {
-          background-color: transparent;
-        }
-
-        #battery, #battery.charging, #battery.plugged, #battery.critical {
-          background-color: transparent;
+          padding: 10px 20px 0 10px;
         }
 
         #battery, #battery.charging, #battery.plugged {
@@ -235,18 +238,37 @@ with lib;
           font-size: 18px;
         }
 
-        #window, #workspaces, #mpris, #systemstatus, #tray {
+        #image-album-art, #window, #workspaces, #mpris, #systemstatus, #tray {
           border-radius: 10px;
-          padding: 10px 10px;
           margin: 10px 10px 0 10px;
           border: 1px solid rgba(100, 114, 125, 0.8);
           background: rgba(43, 48, 59, 0.5);
         }
 
-        #cpu, #memory, #battery, #bluetooth {
-          padding: 0 5px;
+        #window {
+          margin-left: 20px;
         }
 
+        #window, #systemstatus, #tray {
+          padding: 0 12px;
+        }
+
+        #cpu, #memory, #battery, #bluetooth {
+          padding: 0 8px;
+        }
+
+        #workspaces button {
+          padding: 0 12px;
+          border-radius: 10px;
+        }
+
+        #workspaces button:hover {
+          background: rgba(100, 114, 125, 0.2);
+        }
+
+        #workspaces button.active, #workspaces button.hosting-monitor {
+          background: rgba(100, 114, 125, 0.2);
+        }
 
       '';
 
@@ -256,20 +278,45 @@ with lib;
           position = "top";
           height = 50;
 
-          modules-left = [ "mpris" "hyprland/window" ];
+          modules-left = [ "hyprland/window" ];
           modules-center = [ "hyprland/workspaces" ];
           modules-right = [ "tray" "group/systemstatus" "clock" ];
 
-          mpris = {
-            format = "DEFAULT: {player_icon} {dynamic}";
-            format-paused = "DEFAULT: {status_icon} <i>{dynamic}</i>";
+          "image/album-art" = {
+            # exec = ../../scripts/album_art.sh;
+            path = "$HOME/.cache/current-song";
+            size = 32;
+            interval = 30;
+          };
+
+          "custom/media" = {
+            "format" = "{icon}{}";
+            "return-type" = "json";
+            "format-icons" = {
+              "Playing" = " ";
+              "Paused" = " ";
+            };
+            "max-length" = 70;
+            "exec" = ''playerctl -a metadata --format '{"text": "{{playerName}}: {{artist}} - {{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
+            "on-click" = "playerctl play-pause";
           };
 
           "hyprland/window" = {
-            format = "> {}";
+            format = "    {}";
+            separate-outputs = true;
+
+            rewrite = {
+              " (.*) Mozilla Firefox" = " $1";
+              " (.*) - VSCodium" = " $1";
+              " .*Discord \\|(.*)" = "   $1";
+              " (.*)Alacritty" = " $1Alacritty";
+              " (.*)Steam" = "󰓓 $1Steam";
+            };
           };
 
           "hyprland/workspaces" = {
+            all-outputs = true;
+            move-to-monitor = true;
             window-rewrite = {
               "class<firefox>" = "󰈹";
             };
@@ -278,11 +325,16 @@ with lib;
           "group/systemstatus" = {
             orientation = "horizontal";
             modules = [
+              "user"
               "cpu"
               "memory"
               "battery"
               "bluetooth"
             ];
+          };
+
+          user = {
+            format = "  {user}  ";
           };
 
           cpu = {

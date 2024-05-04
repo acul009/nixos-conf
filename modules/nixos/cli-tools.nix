@@ -11,6 +11,7 @@ with lib;
 
   config = mkIf config.woelfchen.cli-tools.enable {
     environment.systemPackages = with pkgs; [
+      bash
       dig
       htop
       killall
