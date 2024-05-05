@@ -10,7 +10,7 @@ with lib;
   config = mkIf config.woelfchen.rustup.enable {
 
     home.packages = with pkgs; [
-      rustuo
+      rustup
     ];
   };
 
