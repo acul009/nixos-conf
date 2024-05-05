@@ -9,6 +9,23 @@ with lib;
   config = mkIf config.woelfchen.nvidia.enable (mkMerge [
     ({
 
+      environment.sessionVariables = {
+        GBM_BACKEND = "nvidia-drm";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        LIBVA_DRIVER_NAME = "nvidia";
+
+        # might cause issues if turned on
+        __GL_VRR_ALLOWED = "0";
+
+        # might fix flickering - legacy interface
+        # WLR_DRM_NO_ATOMIC = "1";
+
+        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+
+        # nixos function
+        NIXOS_OZONE_WL = 1;
+      };
+
       # Enable OpenGL
       hardware.opengl = {
         enable = true;
