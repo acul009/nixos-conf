@@ -16,6 +16,7 @@
         "desc:Microstep MSI MAG321CQR KA3H028500018, 2560x1440@120, 1920x0, 1"
       ];
     };
+    rustup.enable = true;
   };
 
 
