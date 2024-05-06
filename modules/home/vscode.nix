@@ -35,6 +35,10 @@ in
         open-vsx.bungcip.better-toml
         open-vsx.serayuzgur.crates
         open-vsx.codeium.codeium
+
+        # Dart
+        open-vsx.dart-code.dart-code
+        open-vsx.dart-code.flutter
       ];
 
       userSettings = {
