@@ -17,6 +17,7 @@
       ];
     };
     rustup.enable = true;
+    kde.tools.enable = true;
   };
 
 
