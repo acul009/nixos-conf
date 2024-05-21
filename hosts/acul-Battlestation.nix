@@ -9,7 +9,6 @@
     # ../modules/legacy/localization.nix
     # ../modules/legacy/plasma.nix
     # ../modules/legacy/hyprland.nix
-    ../modules/legacy/printing.nix
     ../modules/legacy/flatpak.nix
     # ../modules/legacy/nvidia.nix
     # ../modules/legacy/pipewire.nix
@@ -32,10 +31,14 @@
       useCStateLimiter = true;
     };
 
+    scanning.enable = true;
+    printing.enable = true;
+
     hyprland.enable = true;
     nvidia.enable = true;
     sound.enable = true;
     steam.enable = true;
+
   };
 
   fileSystems = {

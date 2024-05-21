@@ -12,6 +12,8 @@
     ./nixos/networking.nix
     ./nixos/nvidia.nix
     ./nixos/plasma.nix
+    ./nixos/printing.nix
+    ./nixos/scanning.nix
     ./nixos/sound.nix
     ./nixos/steam.nix
     ./nixos/user.nix

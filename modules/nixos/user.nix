@@ -20,7 +20,12 @@ with lib;
   config = {
     users.users.${config.woelfchen.user.username} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "scanner" "lp" ]; # Enable ‘sudo’ for the user.
+      extraGroups = mkMerge [
+        [ "wheel" "networkmanager" ]
+        (mkIf config.woelfchen.scanning.enable
+          [ "scanner" "lp" ]
+        )
+      ];
     };
 
     home-manager = {
@@ -37,6 +42,7 @@ with lib;
             ../home-modules.nix
             ../../users/${config.woelfchen.user.username}.nix
           ];
+
         };
       };
     };
