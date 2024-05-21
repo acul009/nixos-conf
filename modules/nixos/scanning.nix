@@ -23,7 +23,6 @@ with lib;
       openFirewall = true;
 
 
-      netConf = strings.concatStringsSep "\n" config.woelfchen.scanning.ips;
 
       extraBackends = [ pkgs.sane-airscan ];
     };
