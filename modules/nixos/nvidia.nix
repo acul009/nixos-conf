@@ -76,6 +76,9 @@ with lib;
         libva-utils
         vdpauinfo
       ];
+
+       # incompatible with kernel later than 6.8
+       boot.kernelPackages = mkForce pkgs.linuxPackages_6_8;
     })
 
     (mkIf config.services.displayManager.sddm.enable {
