@@ -8,6 +8,7 @@
     zsh.enable = true;
     network-manager.enable = true;
     spotify.enable = true;
+    heroic.enable = true;
     hyprland = {
       enable = true;
       monitors = [

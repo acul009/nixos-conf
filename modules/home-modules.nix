@@ -3,6 +3,7 @@
   imports = [
     ./home/discord.nix
     ./home/firefox.nix
+    ./home/heroic.nix
     ./home/hyprland.nix
     ./home/kde-tools.nix
     ./home/network-manager.nix
