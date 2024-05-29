@@ -39,6 +39,9 @@ in
         # Dart
         open-vsx.dart-code.dart-code
         open-vsx.dart-code.flutter
+
+        # Svelte
+        open-vsx.svelte.svelte-vscode
       ];
 
       userSettings = {
