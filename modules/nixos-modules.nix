@@ -5,6 +5,7 @@
     ./nixos/boot.nix
     ./nixos/cli-tools.nix
     ./nixos/default-timezone.nix
+    ./nixos/docker.nix
     ./nixos/experimental-features.nix
     ./nixos/git.nix
     ./nixos/hyprland.nix

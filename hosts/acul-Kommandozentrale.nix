@@ -19,7 +19,9 @@
     hyprland = {
       enable = true;
     };
+
     plasma.enable = true;
+    docker.enable = true;
   };
 
   fileSystems = {

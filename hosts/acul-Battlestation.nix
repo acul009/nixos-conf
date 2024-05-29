@@ -26,6 +26,7 @@
     nvidia.enable = true;
     sound.enable = true;
     steam.enable = true;
+    docker.enable = true;
 
   };
 
