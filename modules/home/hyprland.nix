@@ -28,12 +28,17 @@ with lib;
       #media control
       playerctl
 
+      # file manager
+      gnome.nautilus
+
       # policykit agent
       lxqt.lxqt-policykit
 
       # screenshots
       grim
       slurp
+
+      kdePackages.ark
     ];
 
 
