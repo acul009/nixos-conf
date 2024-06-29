@@ -19,6 +19,8 @@ with lib;
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
       '';
+
+      historySubstringSearch.enable = true;
     };
 
     programs.starship.enableZshIntegration = true;
