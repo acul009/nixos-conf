@@ -36,12 +36,18 @@ in
         open-vsx.serayuzgur.crates
         open-vsx.codeium.codeium
 
+        # Go
+        open-vsx.golang.go
+
         # Dart
         open-vsx.dart-code.dart-code
         open-vsx.dart-code.flutter
 
         # Svelte
         open-vsx.svelte.svelte-vscode
+
+        # Nöön Live-Share
+        vscode-marketplace.ms-vsliveshare.vsliveshare
       ];
 
       userSettings = {
