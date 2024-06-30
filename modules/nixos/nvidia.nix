@@ -37,6 +37,13 @@ with lib;
         NIXOS_OZONE_WL = 1;
       };
 
+      # Enable OpenGL (soon tm)
+      # hardware.graphics = {
+      #   enable = true;
+      #   enable32Bit = true;
+      # };
+
+
       # Enable OpenGL
       hardware.graphics.enable = true;
 
