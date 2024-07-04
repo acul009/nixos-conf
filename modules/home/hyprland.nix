@@ -29,7 +29,7 @@ with lib;
       playerctl
 
       # file manager
-      gnome.nautilus
+      nautilus
 
       # policykit agent
       lxqt.lxqt-policykit
