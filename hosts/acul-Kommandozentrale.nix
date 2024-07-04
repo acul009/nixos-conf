@@ -20,7 +20,16 @@
       enable = true;
     };
 
-    plasma.enable = true;
+    nvidia = {
+      enable = true;
+      prime = {
+        enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+
+    plasma.enable = false;
     docker.enable = true;
     steam.enable = true;
     virtualbox.enable = true;

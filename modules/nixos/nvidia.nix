@@ -4,6 +4,17 @@ with lib;
 {
   options.woelfchen.nvidia = {
     enable = mkEnableOption "";
+    prime = {
+      enable = mkEnableOption "";
+
+      intelBusId = mkOption {
+        type = types.string;
+      };
+
+      nvidiaBusId = mkOption {
+        type = types.string;
+      };
+    };
   };
 
   config = mkIf config.woelfchen.nvidia.enable (mkMerge [
@@ -27,11 +38,7 @@ with lib;
       };
 
       # Enable OpenGL
-      hardware.opengl = {
-        enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-      };
+      hardware.graphics.enable = true;
 
       # Load nvidia driver for Xorg and Wayland
       services.xserver.videoDrivers = [ "nvidia" ];
@@ -77,8 +84,24 @@ with lib;
         vdpauinfo
       ];
 
-       # incompatible with kernel later than 6.8
-       boot.kernelPackages = mkForce pkgs.linuxPackages_6_8;
+      # incompatible with kernel later than 6.8
+      boot.kernelPackages = mkForce pkgs.linuxPackages_6_8;
+    })
+
+    (mkIf config.woelfchen.nvidia.prime.enable {
+      hardware.nvidia.prime = {
+        sync.enable = true;
+
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        # Make sure to use the correct Bus ID values for your system!
+        nvidiaBusId = config.woelfchen.nvidia.prime.nvidiaBusId;
+        intelBusId = config.woelfchen.nvidia.prime.intelBusId;
+        # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+      };
     })
 
     (mkIf config.services.displayManager.sddm.enable {
