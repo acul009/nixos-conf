@@ -19,6 +19,7 @@ with lib;
       nmap
       vim
       wget
+      lshw
     ];
   };
 }
