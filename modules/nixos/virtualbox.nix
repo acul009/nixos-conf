@@ -11,5 +11,5 @@ with lib;
   config = mkIf config.woelfchen.virtualbox.enable
     {
       virtualisation.virtualbox.host.enable = true;
-    }
-    }
+    };
+}
