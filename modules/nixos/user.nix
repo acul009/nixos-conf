@@ -25,6 +25,9 @@ with lib;
         (mkIf config.woelfchen.scanning.enable
           [ "scanner" "lp" ]
         )
+        (mkIf config.woelfchen.virtualbox.enable [
+          "vboxusers"
+        ])
       ];
     };
 

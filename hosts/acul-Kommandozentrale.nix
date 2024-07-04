@@ -23,6 +23,7 @@
     plasma.enable = true;
     docker.enable = true;
     steam.enable = true;
+    virtualbox.enable = true;
   };
 
   fileSystems = {
