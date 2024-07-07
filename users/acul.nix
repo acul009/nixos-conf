@@ -2,6 +2,7 @@
 
 {
   woelfchen = {
+    chromium.enable = true;
     discord.enable = true;
     firefox.enable = true;
     vscode.enable = true;
