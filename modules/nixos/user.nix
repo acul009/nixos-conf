@@ -21,7 +21,7 @@ with lib;
     users.users.${config.woelfchen.user.username} = {
       isNormalUser = true;
       extraGroups = mkMerge [
-        [ "wheel" "networkmanager" ]
+        [ "wheel" "networkmanager" "dialout" ]
         (mkIf config.woelfchen.scanning.enable
           [ "scanner" "lp" ]
         )
