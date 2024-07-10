@@ -28,6 +28,8 @@
     steam.enable = true;
     docker.enable = true;
 
+    obs.enable = true;
+
   };
 
   fileSystems = {
