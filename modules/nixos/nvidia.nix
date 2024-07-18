@@ -38,7 +38,14 @@ with lib;
       };
 
       # Enable OpenGL (soon tm)
-      # hardware.graphics = {
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
+
+
+      # Enable OpenGL
+      # hardware.opengl = {
       #   enable = true;
       #   enable32Bit = true;
       # };
