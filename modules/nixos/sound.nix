@@ -9,7 +9,6 @@ with lib;
 
   config = mkIf (config.woelfchen.sound.enable) {
 
-    sound.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
