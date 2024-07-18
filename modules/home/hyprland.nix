@@ -39,6 +39,9 @@ with lib;
       slurp
 
       kdePackages.ark
+
+      wtype
+      wl-clipboard-rs
     ];
 
 
