@@ -99,6 +99,9 @@ with lib;
             # close window
             "SUPER, X, killactive"
 
+            # print clipboard
+            "SUPER, V, exec, bash -c 'sleep 1; wl-paste -n | wtype -'"
+
             # Screenshot
             ", Print, exec, grim -g \"$(slurp)\""
 
