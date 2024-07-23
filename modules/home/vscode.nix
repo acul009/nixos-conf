@@ -26,6 +26,7 @@ in
         # # Basic
         open-vsx.mhutchie.git-graph
         open-vsx.vscodevim.vim
+        # open-vsx.codeium.codeium
 
         # # Nix & Nixos
         open-vsx.jnoortheen.nix-ide
@@ -34,7 +35,6 @@ in
         open-vsx.rust-lang.rust-analyzer
         open-vsx.bungcip.better-toml
         open-vsx.serayuzgur.crates
-        open-vsx.codeium.codeium
 
         # Go
         open-vsx.golang.go
@@ -68,6 +68,7 @@ in
 
     home.packages = with pkgs; [
       nixpkgs-fmt
+      codeium
     ];
   };
 
