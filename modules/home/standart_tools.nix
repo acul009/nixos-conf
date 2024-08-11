@@ -11,7 +11,6 @@ with lib;
 
     home.packages = with pkgs; [
       vlc
-      libvlc
     ];
   };
 
