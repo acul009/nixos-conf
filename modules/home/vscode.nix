@@ -32,7 +32,7 @@ in
         open-vsx.jnoortheen.nix-ide
 
         # # Rust
-        open-vsx.rust-lang.rust-analyzer
+        vscode-marketplace.rust-lang.rust-analyzer
         open-vsx.bungcip.better-toml
         open-vsx.serayuzgur.crates
 

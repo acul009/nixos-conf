@@ -75,6 +75,10 @@ with lib;
           # mouse acceleration
           accel_profile = "flat";
 
+          # Logitech (not working)
+          # emulate_discrete_scroll = 1;
+          # scroll_factor = 1;
+
           touchpad = {
             natural_scroll = true;
             scroll_factor = 0.3;

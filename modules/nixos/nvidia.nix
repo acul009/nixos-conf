@@ -85,7 +85,7 @@ with lib;
       ];
 
       # incompatible with kernel later than 6.8
-      boot.kernelPackages = mkForce pkgs.linuxPackages_6_8;
+      # boot.kernelPackages = mkForce pkgs.linuxPackages_6_8;
     })
 
     (mkIf config.woelfchen.nvidia.prime.enable {
